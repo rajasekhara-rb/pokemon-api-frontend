@@ -1,0 +1,8 @@
+# Session 13- 20/05/2023- Mini Project 3
+
+**Create a simple react app as front end for the api created for authentication and authorization.**
+
+1. It should have a login for for authentication.
+2. On successfull login user should be redirected to a page where he can see all the pokemons.
+3. We should have a create pokemon button to create a new pokemon by filling a form.
+4. Onclick of a particular pokemon we should be able to see the whole data of that pokemon coming from the backend.
