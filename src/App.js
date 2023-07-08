@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import UserSignup from "./components/UserSignup";
 import UserSignin from "./components/UserSignin";
+import Pokemon from "./components/Pokemon";
 
 
 function App() {
@@ -12,9 +13,10 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+          <Route path="/" element={<Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route path="/signup" element={<UserSignup />} />
-          <Route path="/signin" element={<UserSignin loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+          <Route path="/signin" element={<UserSignin loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+          <Route path="/pokemon/:id" element={<Pokemon/>}/>
         </Routes>
       </Router>
     </>
