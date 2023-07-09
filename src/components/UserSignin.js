@@ -9,16 +9,12 @@ function UserSignin({ loggedIn, setLoggedIn }) {
         password: ""
     });
 
-    // const handleChange = (e)=>{
-    // e
-    // }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // const { email, password } = loggedIn;
+        // const { email, password } = user;
         try {
-            // if (email && password) {
-                await axios.post("http://localhost:4500/api/v0/signin", user)
+            if (user.email && user.password) {
+                await axios.post("https://pokemon-api-of93.onrender.com/api/v0/signin", user)
                     .then((res) => {
                         if (res.status === 200) {
                             setLoggedIn(res.data.token);
@@ -29,9 +25,9 @@ function UserSignin({ loggedIn, setLoggedIn }) {
                             alert(res.data.message);
                         }
                     })
-            // } else {
-            //     alert("Credentials cannot be empty");
-            // }
+            } else {
+                alert("Credentials cannot be empty");
+            }
         } catch (error) {
             console.log(error);
         }

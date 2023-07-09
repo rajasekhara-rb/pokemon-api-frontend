@@ -20,7 +20,7 @@ function Home({ loggedIn, setLoggedIn }) {
             const accessToken = localStorage.getItem("jwt-token")
             try {
                 await axios
-                    .get("http://localhost:4500/api/v0/getPokemons",
+                    .get("https://pokemon-api-of93.onrender.com/api/v0/getPokemons",
                         {
                             headers: {
                                 "authorization": "Barer " + accessToken
@@ -49,7 +49,7 @@ function Home({ loggedIn, setLoggedIn }) {
     return (
         <>
             <div className="container p-2 d-flex flex-column">
-                <div>
+                <div className="d-flex justify-content-end">
                     <button onClick={handleLogout} className="btn btn-danger m-4">Log Out</button>
                 </div>
                 <h1 className="alert alert-warning">Pokemons</h1>

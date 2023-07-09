@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import UserSignup from "./components/UserSignup";
 import UserSignin from "./components/UserSignin";
 import Pokemon from "./components/Pokemon";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
           <Route path="/" element={<Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route path="/signup" element={<UserSignup />} />
           <Route path="/signin" element={<UserSignin loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-          <Route path="/pokemon/:id" element={<Pokemon/>}/>
+          <Route path="/pokemon/:id" element={<Pokemon />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/resetPassword/:token" element={<ResetPassword/>} />
         </Routes>
       </Router>
     </>

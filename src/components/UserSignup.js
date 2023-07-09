@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,8 +10,17 @@ function UserSignup() {
         password: "",
         reEnteredPassword: ""
     });
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        try {
+            axios.post("https://pokemon-api-of93.onrender.com/api/v0/signup", user)
+                .then((res) => {
+                    alert(res.data.message)
+                })
+                navigate("/signin")
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <>
