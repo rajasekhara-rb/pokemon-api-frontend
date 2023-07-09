@@ -13,7 +13,7 @@ function ResetPassword() {
 
     const tokenVerification = async () => {
         try {
-            await axios.get(`http://localhost:4500/resetPassword/${token}`)
+            await axios.get(`https://pokemon-api-of93.onrender.com/resetPassword/${token}`)
                 .then((res) => {
                     // alert(res.data.message)
                     setVerifyToken(res.data.message)
@@ -32,7 +32,7 @@ function ResetPassword() {
         const { password, confirmPassword } = passwords;
         try {
             if (password === confirmPassword) {
-                await axios.post(`http://localhost:4500/newPassword/${token}`, passwords)
+                await axios.post(`https://pokemon-api-of93.onrender.com/newPassword/${token}`, passwords)
                     .then((res) => {
                         alert(res.data.message);
                     })

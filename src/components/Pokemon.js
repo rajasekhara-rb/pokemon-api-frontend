@@ -8,7 +8,7 @@ function Pokemon() {
     const [pokemon, setPokemon] = useState("")
     useEffect(() => {
         const accessToken = localStorage.getItem("jwt-token");
-        const url = `http://localhost:4500/api/v0/getPokemons/${id}`;
+        const url = `https://pokemon-api-of93.onrender.com/api/v0/getPokemons/${id}`;
         const options = {
             headers: {
                 "authorization": "Barer " + accessToken
