@@ -29,7 +29,7 @@ function Pokemon() {
         fetchPokmonByID()
     }, [id])
 
-     return (
+    return (
         <>
             <div className="container p-2 d-flex flex-column">
                 <div className="card mt-3 container row row-cols-1 row-cols-md-3 g-4">
@@ -38,10 +38,10 @@ function Pokemon() {
                         <h5 className="card-title">Pokemon Name: {pokemon.name}</h5>
                         <p className="card-text">Weakness: {[pokemon.weakness].join(" ")}</p>
                         <p className="card-text">Srengths: {[pokemon.strength].join(" ")}</p>
-                        <p className="card-text">Moves: {pokemon.moves}</p>
+                        <p className="card-text">Moves: {[pokemon.moves.join(" ")]}</p>
                         <p className="card-text"><small className="text-muted">Id: {pokemon._id}</small></p>
                     </div>
-                <button className="btn btn-primary m-2" onClick={()=>{navigate("/")}}>Go to Pokemons</button>
+                    <button className="btn btn-primary m-2" onClick={() => { navigate("/") }}>Go to Pokemons</button>
                 </div>
             </div>
         </>

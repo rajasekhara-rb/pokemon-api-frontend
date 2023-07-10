@@ -6,6 +6,7 @@ import UserSignin from "./components/UserSignin";
 import Pokemon from "./components/Pokemon";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
+import CreatePokemon from "./components/CreatePokemon";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/pokemon/:id" element={<Pokemon />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetPassword/:token" element={<ResetPassword/>} />
+          <Route path="/createPokemon" element={<CreatePokemon/>}/>
         </Routes>
       </Router>
     </>

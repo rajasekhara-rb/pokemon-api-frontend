@@ -49,10 +49,14 @@ function Home({ loggedIn, setLoggedIn }) {
     return (
         <>
             <div className="container p-2 d-flex flex-column">
-                <div className="d-flex justify-content-end">
-                    <button onClick={handleLogout} className="btn btn-danger m-4">Log Out</button>
+                <div className="d-flex justify-content-between alert alert-info">
+                    <h1 className="w-60">Pokemons List</h1>
+                    <div className="d-flex justify-content-around w-40">
+                        <button onClick={()=>{navigate("/createPokemon")}} className="btn btn-primary mx-4">Create Pokemon</button>
+                        <button onClick={handleLogout} className="btn btn-danger mx-4">Log Out</button>
+                    </div>
                 </div>
-                <h1 className="alert alert-warning">Pokemons</h1>
+
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {data.map((pokemon) =>
                         <Link to={"pokemon/" + pokemon._id}>
