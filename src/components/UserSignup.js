@@ -13,11 +13,19 @@ function UserSignup() {
     const handleSubmit = (e) => {
         e.preventDefault();
         try {
-            axios.post("https://pokemon-api-of93.onrender.com/api/v0/signup", user)
-                .then((res) => {
-                    alert(res.data.message)
-                })
-                navigate("/signin")
+            if (user.name && user.email && user.password && user.reEnteredPassword) {
+                if (user.password !== user.reEnteredPassword) {
+                    alert("Password is not matching");
+                } else {
+                    axios.post("https://pokemon-api-of93.onrender.com/api/v0/signup", user)
+                        .then((res) => {
+                            alert(res.data.message)
+                        })
+                    navigate("/signin");
+                }
+            } else {
+                alert("Details cannot be empty")
+            }
         } catch (error) {
             console.log(error)
         }

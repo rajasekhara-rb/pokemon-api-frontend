@@ -12,7 +12,6 @@ import CreatePokemon from "./components/CreatePokemon";
 function App() {
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("jwt-token"));
   return (
-
     <>
       <Router>
         <Routes>

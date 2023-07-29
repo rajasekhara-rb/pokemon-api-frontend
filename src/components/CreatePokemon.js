@@ -24,8 +24,8 @@ function CreatePokemon() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { name, weakness, strength, moves } = pokemonDetails
-            if (name && weakness && strength && moves) {
+            const { avatar, name, weakness, strength, moves } = pokemonDetails
+            if (name && weakness && strength && moves && avatar) {
                 await axios
                     .post(url, pokemonDetails, options)
                     .then((res) => {
@@ -65,6 +65,11 @@ function CreatePokemon() {
                         <div className="form-group col-md-6 m-2 border p-2">
                             <label for="inputEmail4">Pokemon Name</label>
                             <input type="text" className="form-control" id="inputEmail4" placeholder="Name" onChange={(e) => setPokemonDetails({ ...pokemonDetails, name: e.target.value })}></input>
+                            {/* <div className="form-text text-light" id="basic-addon4">Example help text goes outside the input group.</div> */}
+                        </div>
+                        <div className="form-group col-md-6 m-2 border p-2">
+                            <label for="inputEmail4">Pokemon Image URL</label>
+                            <input type="url" className="form-control" id="inputEmail4" placeholder="URL" onChange={(e) => setPokemonDetails({ ...pokemonDetails, avatar: e.target.value })}></input>
                             {/* <div className="form-text text-light" id="basic-addon4">Example help text goes outside the input group.</div> */}
                         </div>
                         <div className="form-group col-md-6 m-2 border p-2">
