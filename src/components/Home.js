@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "./navbar.js";
 
 function Home({ loggedIn, setLoggedIn }) {
     const navigate = useNavigate();
@@ -40,21 +41,22 @@ function Home({ loggedIn, setLoggedIn }) {
     //     fetchPokmons()
     // }, [])
 
-    const handleLogout = () => {
-        setLoggedIn(localStorage.removeItem("jwt-token"));
-        localStorage.removeItem("jwt-token");
-    }
+    // const handleLogout = () => {
+    //     setLoggedIn(localStorage.removeItem("jwt-token"));
+    //     localStorage.removeItem("jwt-token");
+    // }
 
     return (
         <>
+            {/* <Navbar handleLogout={handleLogout} /> */}
             <div className="container p-2 d-flex flex-column">
-                <div className="d-flex justify-content-between alert alert-info">
+                {/* <div className="d-flex justify-content-between alert alert-info">
                     <h1 className="w-60">Pokemons List</h1>
                     <div className="d-flex justify-content-around w-40">
                         <button onClick={() => { navigate("/createPokemon") }} className="btn btn-primary mx-4">Create Pokemon</button>
                         <button onClick={handleLogout} className="btn btn-danger mx-4">Log Out</button>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {data.map((pokemon) =>
