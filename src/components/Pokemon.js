@@ -7,8 +7,8 @@ function Pokemon() {
     const navigate = useNavigate();
     const [pokemonData, setPokemonData] = useState({});
 
-    const [abilities, setAbilities] = useState([]);
-    const [evolutions, setEvolutions] = useState([]);
+    // const [abilities, setAbilities] = useState([]);
+    // const [evolutions, setEvolutions] = useState([]);
     const [stats, setStats] = useState([]);
     const [type, setType] = useState([]);
     const [weaknesses, setWeaknesses] = useState([]);
@@ -43,8 +43,8 @@ function Pokemon() {
                     .get(url, options)
                     .then((res) => {
                         setPokemonData(res.data);
-                        setAbilities(res.data.abilities);
-                        setEvolutions(res.data.evolutions);
+                        // setAbilities(res.data.abilities);
+                        // setEvolutions(res.data.evolutions);
                         setStats(res.data.stats);
                         setType(res.data.type);
                         setWeaknesses(res.data.weaknesses);
