@@ -5,8 +5,37 @@ import { useNavigate } from "react-router-dom";
 
 function CreatePokemon() {
     const navigate = useNavigate();
-    const [pokemonDetails, setPokemonDetails] = useState({});
+    const [pokemonDetails, setPokemonDetails] = useState({
+        id: "",
+        name: "",
+        avatar: "",
+        description: "",
+        category: "",
+        height: "",
+        weight: "",
+        abilities: "",
+        gender: "",
+        type: [],
+        weaknesses: [],
+        stats: [{}],
+        evolutions: []
+    });
     console.log(pokemonDetails);
+    // const pokemonStats = [];
+    // const [pokemonStats, setPokemonStats] = useState([]);
+    // console.log(pokemonStats)
+
+    // const handlePokemonStats = (e) => {
+    //     // e.preventDefault()
+    //     // pokemonStats.push({ name: e.target.name, value: e.target.value })
+    //     const name = e.target.name;
+    //     const value = e.target.value;
+    //     setPokemonDetails(() => ({ ...pokemonStats.stats, [name]: value }));
+
+    // }
+    // pokemonDetails.stats.push(pokemonStats);
+
+
     // { id, name, avatar, description, category, height, weight, abilities, gender, type, weaknesses, stats, evolutions }
     const token = localStorage.getItem("jwt-token");
     // console.log(token);
@@ -161,21 +190,25 @@ function CreatePokemon() {
                         </div>
 
                         {/* <label for="inputEmail4">Stats</label> */}
-                        <div className="form-group col-md-6 m-2 border p-2">
+                        <div className="form-group col-md-6 m-2 border p-2"
+                        // onChange={(e) => { setPokemonDetails(...pokemonDetails, pokemonStats) }}
+                        >
                             <label for="inputEmail4">Stats - HP</label>
                             <input type="range"
                                 min="1"
                                 max="10"
-                                // value="5"
                                 className="form-control"
                                 id="inputEmail4"
                                 placeholder="Evoluations"
-                                // onChange={(e) => setPokemonDetails({ ...pokemonDetails, stats: e.target.value })}
-                                onChange={(e) => setPokemonDetails({ ...pokemonDetails.stats, name: "hp", value: e.target.value })}
+                                name="hp"
+                                // value={pokemonDetails.stats.hp}
+                                onChange={(e) => setPokemonDetails({ ...pokemonDetails, stats: [{ name: e.target.name, value: e.target.value }] })}
                             >
                             </input>
-                            <span>{pokemonDetails.stats}</span>
+                            {/* <span>{pokemonDetails.stats}</span> */}
+
                         </div>
+
 
                         <div className="form-group col-md-6 m-2 border p-2">
                             <label for="inputEmail4">Evoluations</label>
@@ -186,10 +219,6 @@ function CreatePokemon() {
                                 onChange={(e) => setPokemonDetails({ ...pokemonDetails, evoluations: e.target.value.split(",") })}></input>
                             <div className="form-text text-light" id="basic-addon4">Write all evoluations seperating with commas ",".</div>
                         </div>
-
-
-
-
 
                         {/* <div className="form-group col-md-6 m-2 border p-2">
                             <label for="inputEmail4">Pokemon Name</label>
@@ -223,8 +252,8 @@ function CreatePokemon() {
 
 
                 </div>
-            </form>
-        </div>
+            </form >
+        </div >
     )
 }
 
