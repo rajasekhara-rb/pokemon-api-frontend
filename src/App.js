@@ -27,7 +27,7 @@ function App() {
           <Route path="/pokemon/:id" element={<Pokemon />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/resetPassword/:token" element={<ResetPassword />} />
-          <Route path="/createPokemon" element={<CreatePokemon />} />
+          <Route path="/createPokemon" element={<CreatePokemon loggedIn={loggedIn} />} />
         </Routes>
       </Router>
     </>

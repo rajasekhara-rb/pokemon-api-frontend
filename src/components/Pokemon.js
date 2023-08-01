@@ -1,33 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Pokemon() {
     const { id } = useParams();
-    const navigate = useNavigate();
     const [pokemonData, setPokemonData] = useState({});
-
+    console.log(pokemonData)
     // const [abilities, setAbilities] = useState([]);
     // const [evolutions, setEvolutions] = useState([]);
     const [stats, setStats] = useState([]);
     const [type, setType] = useState([]);
     const [weaknesses, setWeaknesses] = useState([]);
-
-    const statsRep = (val) => {
-        let out = [];
-        for (let c = 1; c <= 10; c++) {
-            if (val >= c) {
-                // for (let i = 1; i <= val; i++) {
-                out.push(<div style={{ background: "blue", height: "10px", margin: "5px" }}></div>)
-                // }
-            } else {
-                out.unshift(<div style={{ background: "white", height: "10px", margin: "5px" }}></div>)
-            }
-        }
-
-        return out;
-    }
-
+    console.log(stats);
 
     useEffect(() => {
         const accessToken = localStorage.getItem("jwt-token");
@@ -45,7 +29,7 @@ function Pokemon() {
                         setPokemonData(res.data);
                         // setAbilities(res.data.abilities);
                         // setEvolutions(res.data.evolutions);
-                        setStats(res.data.stats);
+                        setStats(res.data.stats[0]);
                         setType(res.data.type);
                         setWeaknesses(res.data.weaknesses);
 
@@ -61,12 +45,29 @@ function Pokemon() {
         fetchPokmonByID()
     }, [id])
 
+
+    const statsRep = (val) => {
+        // console.log(val)
+        let out = [];
+        for (let c = 1; c <= 10; c++) {
+            if (val >= c) {
+                // for (let i = 1; i <= val; i++) {
+                out.push(<div style={{ background: "blue", height: "10px", margin: "5px" }}></div>)
+                // }
+            } else {
+                out.unshift(<div style={{ background: "white", height: "10px", margin: "5px" }}></div>)
+            }
+        }
+        return out;
+    }
+    
+
     return (
         <>
             <div className="container">
-                <div className="alert alert-info">
+                {/* <div className="alert alert-info">
                     <button className="btn btn-primary" onClick={() => { navigate("/") }}>Home</button>
-                </div>
+                </div> */}
                 <div className="name-id" style={{ textAlign: "center" }}>
                     <span style={{ fontWeight: "bolder", fontSize: "25px", color: "#000000" }}>
                         {pokemonData.name}
@@ -138,8 +139,8 @@ function Pokemon() {
                     marginTop: "25px",
                     // width:"500px"
                 }}>
-                    <ul className="statistics" style={{ width: "500px", padding: "20px", background: "#a4a4a4", display: "flex", borderRadius: "10px" }}>
-                        {stats.map((e) => {
+                    <ul className="statistics" style={{ width: "500px", padding: "20px", background: "#a4a4a4", display: "flex", justifyContent: "center", borderRadius: "10px" }}>
+                        {/* {stats.map((e) => {
                             return <li style={{
                                 listStyle: "none",
                                 display: "flex",
@@ -157,9 +158,114 @@ function Pokemon() {
                                     {e.name.toUpperCase()}
                                 </div>
                             </li>
-                        })}
+                        })} */}
+                        <li style={{
+                            listStyle: "none",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            // alignItems: "center",
+                            width: "100px",
+                            margin: "5px",
+                            padding: "0px"
+                        }} >
+                            <div>
+                                {statsRep(stats.hp)}
+                            </div>
+                            <div style={{ fontSize: "10px", textAlign: "center", fontWeight: "bolder" }}>
+                                HP
+                            </div>
+                        </li>
 
+                        <li style={{
+                            listStyle: "none",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            // alignItems: "center",
+                            width: "100px",
+                            margin: "5px",
+                            padding: "0px"
+                        }}>
+                            <div>
+                                {statsRep(stats.attack)}
+                            </div>
+                            <div style={{ fontSize: "10px", textAlign: "center", fontWeight: "bolder" }}>
+                                Attack
+                            </div>
+                        </li>
 
+                        <li style={{
+                            listStyle: "none",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            // alignItems: "center",
+                            width: "100px",
+                            margin: "5px",
+                            padding: "0px"
+                        }}>
+                            <div>
+                                {statsRep(stats.defense)}
+                            </div>
+                            <div style={{ fontSize: "10px", textAlign: "center", fontWeight: "bolder" }}>
+                                Defense
+                            </div>
+                        </li>
+
+                        <li style={{
+                            listStyle: "none",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            // alignItems: "center",
+                            width: "100px",
+                            margin: "5px",
+                            padding: "0px"
+                        }}>
+                            <div>
+                                {statsRep(stats.specialAttack)}
+                            </div>
+                            <div style={{ fontSize: "10px", textAlign: "center", fontWeight: "bolder" }}>
+                                Special Attack
+                            </div>
+                        </li>
+
+                        <li style={{
+                            listStyle: "none",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            // alignItems: "center",
+                            width: "100px",
+                            margin: "5px",
+                            padding: "0px"
+                        }}>
+                            <div>
+                                {statsRep(stats.specialDefense)}
+                            </div>
+                            <div style={{ fontSize: "10px", textAlign: "center", fontWeight: "bolder" }}>
+                                Special Defense
+                            </div>
+                        </li>
+
+                        <li style={{
+                            listStyle: "none",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            // alignItems: "center",
+                            width: "100px",
+                            margin: "5px",
+                            padding: "0px"
+                        }}>
+                            <div>
+                                {statsRep(stats.speed)}
+                            </div>
+                            <div style={{ fontSize: "10px", textAlign: "center", fontWeight: "bolder" }}>
+                                Speed
+                            </div>
+                        </li>
                     </ul>
                     <div style={{ width: "500px", padding: "20px" }}>
                         <div>
