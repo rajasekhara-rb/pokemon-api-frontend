@@ -28,7 +28,7 @@ const Navbar = (props) => {
                     </Link>
                 </li>
                 <li style={{ listStyle: "none", fontSize: "25px", margin: "0 10px" }}>
-                    <a href="https://pokemon-api-of93.onrender.com/" target="_blank" style={{ textDecoration: "none", color: "#ffffff" }}>
+                    <a href="https://pokemon-api-of93.onrender.com/" target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "#ffffff" }}>
                         Go to API
                     </a>
                 </li>
